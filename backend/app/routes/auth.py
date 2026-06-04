@@ -2,14 +2,15 @@ from fastapi import APIRouter
 from fastapi import Depends
 from fastapi import HTTPException
 
+from fastapi.security import OAuth2PasswordRequestForm
+
 from sqlalchemy.orm import Session
 
 from app.database.db import get_db
 from app.database.models import User
 
 from app.schemas.user import (
-    UserCreate,
-    UserLogin,
+    UserCreate
 )
 
 from app.auth.password import (
@@ -33,13 +34,13 @@ def register_user(
     db: Session = Depends(get_db)
 ):
 
-    existing_email = (
+    existing_user = (
         db.query(User)
         .filter(User.email == user.email)
         .first()
     )
 
-    if existing_email:
+    if existing_user:
 
         raise HTTPException(
             status_code=400,
@@ -65,17 +66,17 @@ def register_user(
 
 @router.post("/login")
 def login_user(
-    user: UserLogin,
+    form_data: OAuth2PasswordRequestForm = Depends(),
     db: Session = Depends(get_db)
 ):
 
-    db_user = (
+    user = (
         db.query(User)
-        .filter(User.email == user.email)
+        .filter(User.email == form_data.username)
         .first()
     )
 
-    if not db_user:
+    if not user:
 
         raise HTTPException(
             status_code=401,
@@ -83,8 +84,8 @@ def login_user(
         )
 
     if not verify_password(
-        user.password,
-        db_user.password
+        form_data.password,
+        user.password
     ):
 
         raise HTTPException(
@@ -92,14 +93,14 @@ def login_user(
             detail="Invalid credentials"
         )
 
-    token = create_access_token(
+    access_token = create_access_token(
         {
-            "sub": db_user.email,
-            "user_id": db_user.id
+            "sub": user.email,
+            "user_id": user.id
         }
     )
 
     return {
-        "access_token": token,
+        "access_token": access_token,
         "token_type": "bearer"
     }
