@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>MyExpense Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <h1>MyExpense AI</h1>
+
+            <button
+                onclick="logout()"
+                class="logout-btn">
+
+                Logout
+
+            </button>
+
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+
+                <h3>Total Expenses</h3>
+
+                <h2 id="totalExpense">
+                    ₹0
+                </h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Total Transactions</h3>
+
+                <h2 id="totalTransactions">
+                    0
+                </h2>
+
+            </div>
+
+        </section>
+
+        <section class="add-expense">
+
+            <h2>Add Expense</h2>
+
+            <form id="expenseForm">
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Title"
+                    required>
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Amount"
+                    required>
+
+                <input
+                    type="text"
+                    id="category"
+                    placeholder="Category"
+                    required>
+
+                <input
+                    type="text"
+                    id="description"
+                    placeholder="Description">
+
+                <button type="submit">
+
+                    Add Expense
+
+                </button>
+
+            </form>
+
+        </section>
+
+        <section class="expense-list">
+
+            <h2>Recent Expenses</h2>
+
+            <div id="expensesContainer">
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/expenses.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
