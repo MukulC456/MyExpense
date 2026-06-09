@@ -1,48 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | MyExpense AI</title>
+
+    <link rel="stylesheet" href="css/auth.css">
+</head>
 <body>
 
-<div class="background">
-    <div class="circle circle1"></div>
-    <div class="circle circle2"></div>
-</div>
+    <div class="background">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+    </div>
 
-<div class="auth-card">
+    <div class="auth-card">
 
-    <h1>💰 MyExpense AI</h1>
+        <h1>💰 MyExpense AI</h1>
 
-    <p class="subtitle">
-        Create your account
-    </p>
+        <p class="subtitle">
+            Create your account
+        </p>
 
-    <input
-        type="text"
-        id="username"
-        placeholder="Username"
-    >
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+        >
 
-    <input
-        type="email"
-        id="email"
-        placeholder="Email"
-    >
+        <input
+            type="email"
+            id="email"
+            placeholder="Email Address"
+        >
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Password"
-    >
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
 
-    <button onclick="registerUser()">
-        Create Account
-    </button>
+        <button onclick="registerUser()">
+            Create Account
+        </button>
 
-    <p>
-        Already have an account?
-        <a href="login.html">Login</a>
-    </p>
+        <p class="switch-page">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
 
-</div>
+    </div>
 
-<script src="js/config.js"></script>
-<script src="js/auth.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
 
 </body>
+</html>
