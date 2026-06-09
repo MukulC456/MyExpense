@@ -1,45 +1,44 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Login</title>
-    <link rel="stylesheet" href="css/auth.css">
-</head>
-
 <body>
 
-    <div class="container"> 
+<div class="background">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+</div>
 
-        <h1>Login</h1>
+<div class="auth-card">
 
-        <input
-            type="email"
-            id="email"
-            placeholder="Email"
-        >
+    <h1>💸 MyExpense AI</h1>
 
-        <input
-            type="password"
-            id="password"
-            placeholder="Password"
-        >
+    <p class="subtitle">
+        Welcome back
+    </p>
 
-        <button onclick="loginUser()">
-            Login
-        </button>
+    <input
+        type="email"
+        id="email"
+        placeholder="Email"
+    >
 
-        <p>
-            Don't have an account?
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+    >
 
-            <a href="register.html">
-                Register
-            </a>
-        </p>
+    <button onclick="loginUser()">
+        Login
+    </button>
 
-    </div>
+    <p>
+        New here?
+        <a href="register.html">
+            Create Account
+        </a>
+    </p>
 
-    <script src="js/config.js"></script>
-    <script src="js/auth.js"></script>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
 
 </body>
-</html>
